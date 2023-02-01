@@ -15,22 +15,28 @@ export class House {
     }
 
     get HouseCardTemplate() {
-        return `
-<div class="col-md-4 my-3">
+        return /*html*/`
+    <div class="col-md-4 my-3">
     <div class="card elevation-2 car" onclick="app.housesController.setActiveHouse('${this.id}')" data-bs-toggle="modal" data-bs-target="#listingModal">
         <img
         src="${this.imgUrl}"
         alt="" class="rounded">
-        <p><b>${this.bedrooms}-Beds ${this.bathrooms}-Baths - $${this.price}</b></p>
+        <p><b>${this.bedrooms}-Bedrooms ${this.bathrooms}-Bathrooms - $${this.price}</b></p>
     </div>
     </div>
-`
-
+    `
+    }
+    get HouseDetailsTemplate() {
+        return /*html*/`
+          <div>
+            <button class="btn btn-danger" data-bs-dismiss="modal" onclick="app.housesController.deleteHouse('${this.id}')">DELETE THE HOUSE!</button>
+          </div>
+        `
 
     }
     static HouseForm() {
         return /*html*/`
-        <form onsubmit="app.carsController.handleFormSubmit()">
+        <form onsubmit="app.housesController.handleFormSubmit()">
     
             <div class="form-floating mb-3">
                 <input type="number" class="form-control" name="year" required>
