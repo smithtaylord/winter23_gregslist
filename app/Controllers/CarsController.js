@@ -50,7 +50,9 @@ export class CarsController {
 
   handleFormSubmit() {
     try {
+      // @ts-ignore
       event.preventDefault()
+      // @ts-ignore
       const form = event.target
       const formData = getFormData(form)
 
