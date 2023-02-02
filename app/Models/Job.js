@@ -26,6 +26,14 @@ export class Job {
         `
     }
 
+    get JobDetailsTemplate() {
+        return /*html*/`
+        <div>
+            <button class="btn btn-danger" data-bs-dismiss="modal" onclick="app.jobsController.deleteJob('${this.id}')">DELETE THE JOB!</button>
+        </div>
+    `
+    }
+
     static JobForm() {
         return /*html*/`
         <form onsubmit="app.jobsController.handleFormSubmit()">
