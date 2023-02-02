@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js"
+import { Job } from "../Models/Job.js"
 import { setHTML, setText } from "../Utils/Writer.js"
 
 function _drawJobs() {
@@ -20,6 +21,8 @@ export class JobsController {
 
     setText('add-listing-button', '🪦 Dead end Job?')
     setText('listingFormLabel', '🪦 Dig up a new Job')
+
+    setHTML('the-actual-form', Job.JobForm())
     _drawJobs()
   }
 }

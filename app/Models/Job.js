@@ -41,13 +41,13 @@ export class Job {
             </div>
     
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" name="year" required min="1886" max="9999">
-                <label for="year">Year</label>
+                <input type="number" class="form-control" name="salary" required >
+                <label for="salary">Salary</label>
             </div>
     
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" name="price" required min="0">
-                <label for="price">Price</label>
+                <input type="text" class="form-control" name="location" required min="0">
+                <label for="location">Location</label>
             </div>
     
             <div class="form-floating mb-3">
