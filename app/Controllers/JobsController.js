@@ -1,17 +1,25 @@
+import { appState } from "../AppState.js"
 import { setHTML, setText } from "../Utils/Writer.js"
+
+function _drawJobs() {
+  let template = ''
+  appState.jobs.forEach(j => template += j.JobCardTemplate)
+  setHTML('listings', template)
+}
+
 
 export class JobsController {
 
   constructor() {
-    console.log('Hello this is the jobs Controller')
+    appState.on('jobs', _drawJobs)
+
   }
 
 
   show() {
-    
+
     setText('add-listing-button', '🪦 Dead end Job?')
     setText('listingFormLabel', '🪦 Dig up a new Job')
-    setHTML('listings', 'YOUR JOB STARTS HERE....')
-    setHTML('the-actual-form', 'Do your job lazy students')
+    _drawJobs()
   }
 }

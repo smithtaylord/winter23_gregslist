@@ -4,7 +4,14 @@ import { saveState } from "../Utils/Store.js"
 
 class HousesService {
     deleteHouse(houseId) {
-        // FINSIH WRITING THIS FOR TONIGHT
+        let houseIndex = appState.houses.findIndex(h => h.id == houseId)
+        if (houseIndex == -1) {
+            throw new Error('That is a bad house id')
+        }
+
+        appState.houses.splice(houseIndex, 1)
+        saveState('houses', appState.houses)
+        appState.emit('houses')
     }
     CreateHouse(formData) {
         let house = new House(formData)
